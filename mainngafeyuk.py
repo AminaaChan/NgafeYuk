@@ -1,4 +1,4 @@
-# Class Admin
+# Class Admin | Dewi Aminah Chan
 class Admin:
     def __init__(self, id_admin, nama_admin, email_admin, pass_admin, role_admin):
         self.id_admin = id_admin
@@ -15,7 +15,7 @@ class Admin:
         else:
             print("Login failed!")
 
-# Class User
+# Class User | Hana Setia Putri Ayu Reghina
 class User:
     def __init__(self, id_user, nama_user, email_user, pass_user, role_user):
         self.id_user = id_user
@@ -33,7 +33,7 @@ class User:
         else:
             print("Login failed!")
 
-# Class Informasi Cafe
+# Class Informasi Cafe | Zahra Puspita Paramastri 
 class Cafe:
     def __init__(self, id_cafe, nama_cafe, lokasi_cafe, rating_cafe, deskripsi_cafe, gambar_cafe):
         self.id_cafe = id_cafe
@@ -56,14 +56,14 @@ class Cafe:
         total_rating = sum([ulasan.rate_user for ulasan in self.ulasan_cafe])
         self.rating_cafe = total_rating / len(self.ulasan_cafe)
 
-# Class Rating & Ulasan User
+# Class Rating & Ulasan User | Zahra Puspita Paramastri 
 class RatingUser:
     def __init__(self, rate_user, ulasan_user, tanggalRate_user):
         self.rate_user = rate_user
         self.ulasan_user = ulasan_user
         self.tanggalRate_user = tanggalRate_user
 
-# Pencarian Cafe
+# Pencarian Cafe | Gea Amarlinda Sassy Mardika 
 def search_cafe(cafe_list, searchNama_cafe):
     result = [cafe for cafe in cafe_list if searchNama_cafe.lower() in cafe.nama_cafe.lower()]
     if result:
@@ -72,7 +72,7 @@ def search_cafe(cafe_list, searchNama_cafe):
     else:
         print("Cafe not found!")
 
-# Filter Berdasarkan Rating Cafe
+# Filter Berdasarkan Rating Cafe | Zahra Puspita Paramastri 
 def filter_cafe_by_rating(cafe_list, filterRating_cafe):
     result = [cafe for cafe in cafe_list if cafe.rating_cafe >= filterRating_cafe]
     if result:
@@ -81,7 +81,7 @@ def filter_cafe_by_rating(cafe_list, filterRating_cafe):
     else:
         print(f"No cafe found with rating >= {filterRating_cafe}")
 
-# Registrasi Admin dan User
+# Registrasi Admin dan User | Dewi Aminah Chan
 def register_admin(admin_list, id_admin, nama_admin, email_admin, pass_admin, role_admin):
     admin = Admin(id_admin, nama_admin, email_admin, pass_admin, role_admin)
     admin_list.append(admin)
@@ -97,7 +97,7 @@ def register_user(user_list):
     user_list.append(user)
     print("User registered successfully!")
 
-# Login Admin dan User
+# Login Admin dan User | Dewi Aminah Chan | Hana Setia Putri Ayu Reghina
 def login_admin(admin_list):
     email = input("Masukkan email admin: ")
     password = input("Masukkan password admin: ")
@@ -118,7 +118,7 @@ def login_user(user_list):
     print("Login user gagal!")
     return None
 
-# Memberikan Rating dan Ulasan dari file
+# Memberikan Rating dan Ulasan dari file | Zahra Puspita Paramastri
 def berikan_rating_dan_ulasan_dari_file(cafe_list, file_path):
     try:
         with open(file_path, 'r') as file:
@@ -142,17 +142,17 @@ if __name__ == "__main__":
     admin_list = []
     user_list = []
     
-    # Menambahkan Admin secara otomatis
+    # Menambahkan Admin secara otomatis | Dewi Aminah Chan
     register_admin(admin_list, 1, "Admin1", "dewiaminahchan.com", "password001", "superadmin")
     register_admin(admin_list, 2, "Admin2", "zahrapuspitaparamastri.com", "password002", "moderator")
     
-    # List cafe
+    # List cafe | Gea Amarlinda Sassy Mardika
     cafe1 = Cafe(1, "Cafe Indah", "Jl. Merpati 1", 4.5, "Tempat nyaman untuk bersantai.", "gambar1.jpg")
     cafe2 = Cafe(2, "Cafe Harmoni", "Jl. Anggrek 2", 3.9, "Cocok untuk kerja dan diskusi.", "gambar2.jpg")
     cafe3 = Cafe(3, "Cafe Santai", "Jl. Kenari 3", 4.2, "Pelayanan ramah dan makanan enak.", "gambar3.jpg")
     cafe_list = [cafe1, cafe2, cafe3]
 
-    user_logged_in = None  # Variabel untuk menyimpan status login user
+    user_logged_in = None  # Variabel untuk menyimpan status login user | Gea Amarlinda Sassy Mardika
 
     while True:
         print("\n==== Sistem Cafe ====")
